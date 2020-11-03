@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  week_number: 1
+  start_date: 2020-11-03
+  end_date: 2020-11-03
+  business_activity: MyString
+  supervisor_action_plans: one
+
+two:
+  week_number: 1
+  start_date: 2020-11-03
+  end_date: 2020-11-03
+  business_activity: MyString
+  supervisor_action_plans: two
