@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_174929) do
+ActiveRecord::Schema.define(version: 2020_11_04_130417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_174929) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["supervisor_action_plans_id"], name: "index_action_plan_weeks_on_supervisor_action_plans_id"
+    t.index ["week_number", "start_date", "end_date", "supervisor_action_plans_id"], name: "index_action_plan_weeks_on_number_start_end_supervisor_id", unique: true
   end
 
   create_table "supervisor_action_plans", force: :cascade do |t|
