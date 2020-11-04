@@ -5,6 +5,8 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
       - ./pg-init-scripts:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_MULTIPLE_DATABASES: myapp_development,myapp_test
