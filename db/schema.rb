@@ -20,22 +20,22 @@ ActiveRecord::Schema.define(version: 2020_11_04_130417) do
     t.date "start_date"
     t.date "end_date"
     t.string "business_activity"
-    t.bigint "supervisor_action_plans_id"
+    t.bigint "supervisor_action_plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["supervisor_action_plans_id"], name: "index_action_plan_weeks_on_supervisor_action_plans_id"
-    t.index ["week_number", "start_date", "end_date", "supervisor_action_plans_id"], name: "index_action_plan_weeks_on_number_start_end_supervisor_id", unique: true
+    t.index ["supervisor_action_plan_id"], name: "index_action_plan_weeks_on_supervisor_action_plan_id"
+    t.index ["week_number", "start_date", "end_date", "supervisor_action_plan_id"], name: "index_action_plan_weeks_on_number_start_end_supervisor_id", unique: true
   end
 
   create_table "supervisor_action_plans", force: :cascade do |t|
     t.string "branch", null: false
-    t.date "month", null: false
+    t.date "mont", null: false
     t.integer "active_agents", default: 0
     t.decimal "goal", precision: 10, scale: 2, default: "0.0"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["branch", "month", "user_id"], name: "index_supervisor_action_plans_on_branch_and_month_and_user_id", unique: true
+    t.index ["branch", "mont", "user_id"], name: "index_supervisor_action_plans_on_branch_and_mont_and_user_id", unique: true
     t.index ["user_id"], name: "index_supervisor_action_plans_on_user_id"
   end
 
@@ -45,6 +45,6 @@ ActiveRecord::Schema.define(version: 2020_11_04_130417) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "action_plan_weeks", "supervisor_action_plans", column: "supervisor_action_plans_id"
+  add_foreign_key "action_plan_weeks", "supervisor_action_plans"
   add_foreign_key "supervisor_action_plans", "users"
 end
