@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ActionPlanWeek, type: :model do
-  describe "presence start_date" do
+  describe "tests of action_plan_week" do
     user = User.create(name: "bruno")
     supervisor_action_plan = user.supervisor_action_plan.create( active_agents: 2, goal: 20, branch: "teste", mont: Date.today)
     action_plan_week = supervisor_action_plan.action_plan_weeks.create( start_date: Date.today, end_date: Date.today + 1.day, week_number: 1 )
