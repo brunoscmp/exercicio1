@@ -100,6 +100,9 @@ RSpec.describe SupervisorActionPlan, type: :model do
         expect(array_msg[0]).to eq("Meta não pode ser menor que zero")  
       end
     end
+    let(:supervisor_plan_aux) do 
+        user.supervisor_action_plan.create(active_agents: 2, goal: 20, branch: "teste", mont: Date.today)
+      end
     context "duplicate for fields branch, mont" do
       it do
         supervisor_plan = user.supervisor_action_plan.new
@@ -108,6 +111,7 @@ RSpec.describe SupervisorActionPlan, type: :model do
         supervisor_plan.branch = "teste"
         supervisor_plan.mont = Date.today
         supervisor_plan.valid?
+        byebug
         expect(supervisor_plan.errors.messages).to have_key(:branch)
         expect(supervisor_plan.errors.messages).to have_value(["Registros Duplicados"])   
       end

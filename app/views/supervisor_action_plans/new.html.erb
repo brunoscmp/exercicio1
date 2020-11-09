@@ -1,0 +1,31 @@
+<h1>Novo Plano de Ação por Supervisor</h1>
+<%= form_with scope: :supervisorActionPlan, url: supervisor_action_plans_path, local: true do |form| %>
+    <p>
+        <%= form.label :branch, 'Filial' %>
+        <br>
+        <%= form.text_field :branch %>
+    </p>
+    <p>
+        <%= form.label :user_id, 'Supervisor' %>
+        <br>
+        <%= form.select :user_id, User.all.pluck( :name, :id ), { prompt: 'select' } %>
+    </p>
+    <p>
+        <%= form.label :mont, 'Mês' %>
+        <br>
+        <%= form.text_field :mont %>
+    </p>
+    <p>
+        <%= form.label :active_agents, 'Agentes Ativos' %>
+        <br>
+        <%= form.text_field :active_agents %>
+    </p>
+    <p>
+        <%= form.label :goal, 'Metas' %>
+        <br>
+        <%= form.text_field :goal %>
+    </p>
+     <p>
+        <%= form.submit "Gravar" %>
+    </p>
+<% end %>

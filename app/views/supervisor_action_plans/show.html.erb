@@ -1,0 +1,26 @@
+<h1>Plano de Ação por Supervisor <%= @supervisorActionPlan.id %></h1>
+<p>
+        <strong>Filial</strong>
+        <br>
+        <%= @supervisorActionPlan.branch %>
+    </p>
+    <p>
+        <strong>Supervisor</strong>
+        <br>
+        <%= @supervisorActionPlan.user.name %>
+    </p>
+    <p>
+        <strong>Mês</strong>
+        <br>
+        <%= @supervisorActionPlan.mont %>
+    </p>
+    <p>
+        <strong>Agentes Ativos</strong>
+        <br>
+        <%= @supervisorActionPlan.active_agents %>
+    </p>
+    <p>
+        <strong>Metas</strong>
+        <br>
+        <%= @supervisorActionPlan.goal %>
+    </p>

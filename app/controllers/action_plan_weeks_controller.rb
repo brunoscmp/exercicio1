@@ -1,0 +1,2 @@
+class ActionPlanWeeksController < ApplicationController
+end
