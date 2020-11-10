@@ -1,0 +1,43 @@
+<%= form_with model: @supervisorActionPlan, local: true do |form| %>
+    <% if @supervisorActionPlan.errors.any? %>
+        <div id="error_explanation">
+        <h2>
+            <%= pluralize(@supervisorActionPlan.errors.count, "error") %> prohibited
+            this supervisor Action Plan from being saved:
+        </h2>
+        <ul>
+            <% @supervisorActionPlan.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+    <p>
+        <%= form.label :branch, 'Filial' %>
+        <br>
+        <%= form.text_field :branch %>
+    </p>
+    <p>
+        <%= form.label :user_id, 'Supervisor' %>
+        <br>
+        <%= form.select :user_id, User.all.pluck( :name, :id ), { prompt: 'select' } %>
+    </p>
+    <p>
+        <%= form.label :mont, 'Mês' %>
+        <br>
+        <%= form.text_field :mont %>
+    </p>
+    <p>
+        <%= form.label :active_agents, 'Agentes Ativos' %>
+        <br>
+        <%= form.text_field :active_agents %>
+    </p>
+    <p>
+        <%= form.label :goal, 'Metas' %>
+        <br>
+        <%= form.text_field :goal %>
+    </p>
+     <p>
+        <%= form.submit "Gravar" %>
+    </p>
+<% end %>

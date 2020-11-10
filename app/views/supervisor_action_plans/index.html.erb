@@ -1,0 +1,27 @@
+<h1>Todos os Planos de Ações para os SUpervisores</h1>
+ <%= link_to 'Novo Plano de Ação', new_supervisor_action_plan_path%>
+<table>
+  <tr>
+    <th>Filial</th>
+    <th>Supervisor</th>
+    <th>Mês</th>
+    <th>Agentes Ativos</th>
+    <th>Meta</th>
+    <th></th>
+  </tr>
+ 
+  <% @supervisor_action_plans.each do |sup| %>
+    <tr>
+        <td><%= sup.branch %></td>
+        <td><%= sup.user.name %></td>
+        <td><%= sup.mont %></td>
+        <td><%= sup.active_agents %></td>
+        <td><%= sup.goal %></td>
+        <td><%= link_to 'Show', supervisor_action_plan_path(sup) %></td>
+        <td><%= link_to 'Editar', edit_supervisor_action_plan_path(sup) %></td>
+        <td><%= link_to 'Excluir', supervisor_action_plan_path(sup),
+                method: :delete,
+                data:{confirm:'Tem certeza?'} %></td>
+    </tr>
+  <% end %>
+</table>

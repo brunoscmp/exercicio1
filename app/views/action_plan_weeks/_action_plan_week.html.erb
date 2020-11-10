@@ -1,0 +1,15 @@
+<p>
+    <strong> Semana <%= action_plan_week.week_number %> Data Inicio   
+        <%= action_plan_week.start_date %> a 
+        <%= action_plan_week.end_date %>
+    </strong>    
+</p>
+<p>
+    <strong>Atividade Comercial:</strong>
+    <%= action_plan_week.business_activity %>
+</p>
+<p>
+    <%= link_to 'Deletar Semana',[ action_plan_week.supervisor_action_plan, action_plan_week ],
+                method: :delete,
+                data: {confirm: 'Tem Certeza?'}%>
+</p>

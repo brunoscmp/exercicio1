@@ -1,0 +1,18 @@
+<% if @supervisorActionPlan.action_plan_weeks.count < 5 %>
+    <h3>Cadastrar Semana</h3>
+    <%= form_with(model: [ @supervisorActionPlan,@supervisorActionPlan.action_plan_weeks.build ],
+     local: true) do |form| %>
+        <p>
+            <%= form.label :start_date, 'Data Inicio Semana' %>
+            <%= form.text_field :start_date %> a 
+            <%= form.text_field :end_date %>
+        </p>
+        <p>
+            <%= form.label :business_activity, 'Atividade Comercial' %><br>
+            <%= form.text_area :business_activity %>
+        </p>
+        <p>
+            <%= form.submit "Gravar" %> 
+        </p>
+    <% end %>
+<%end%>

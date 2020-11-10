@@ -24,3 +24,10 @@
         <br>
         <%= @supervisorActionPlan.goal %>
     </p>
+    <br>
+    <p>
+        <%= render @supervisorActionPlan.action_plan_weeks%>
+    </p>
+    <br>
+    <%= render 'action_plan_weeks/form' %>
+    <%= link_to 'Voltar', supervisor_action_plans_path%>
