@@ -3,7 +3,7 @@ class SupervisorActionPlansController < ApplicationController
         @supervisor_action_plans = SupervisorActionPlan.all
     end
     def show
-        @supervisorActionPlan = SupervisorActionPlan.find(params[:id])
+        @supervisorActionPlan = SupervisorActionPlan.find_by_id(params[:id])
     end
     def new
        @supervisorActionPlan = SupervisorActionPlan.new 

@@ -1,33 +1,37 @@
-<h1>Plano de Ação por Supervisor <%= @supervisorActionPlan.id %></h1>
+<h1>Plano de Ação por Supervisor <%= @supervisorActionPlan&.id %></h1>
 <p>
         <strong>Filial</strong>
         <br>
-        <%= @supervisorActionPlan.branch %>
+        <%= @supervisorActionPlan&.branch %>
     </p>
     <p>
         <strong>Supervisor</strong>
         <br>
-        <%= @supervisorActionPlan.user.name %>
+        <%= @supervisorActionPlan&.user&.name %>
     </p>
     <p>
         <strong>Mês</strong>
         <br>
-        <%= @supervisorActionPlan.mont %>
+        <%= @supervisorActionPlan&.mont %>
     </p>
     <p>
         <strong>Agentes Ativos</strong>
         <br>
-        <%= @supervisorActionPlan.active_agents %>
+        <%= @supervisorActionPlan&.active_agents %>
     </p>
     <p>
         <strong>Metas</strong>
         <br>
-        <%= @supervisorActionPlan.goal %>
+        <%= @supervisorActionPlan&.goal %>
     </p>
     <br>
     <p>
-        <%= render @supervisorActionPlan.action_plan_weeks%>
+        <% if @supervisorActionPlan&.action_plan_weeks %>
+            <%= render @supervisorActionPlan&.action_plan_weeks%>
+        <% end%>
     </p>
     <br>
-    <%= render 'action_plan_weeks/form' %>
+    <% if @supervisorActionPlan&.action_plan_weeks %>
+            <%= render 'action_plan_weeks/form' %>
+        <% end%>    
     <%= link_to 'Voltar', supervisor_action_plans_path%>
